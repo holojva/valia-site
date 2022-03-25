@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+
+{% block content %}
+    <form action="" method="post", enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        {% if obj.get_image_name %}
+        <h1>
+            <mark>image: {{ obj.get_image_name }} added succesfully</mark>
+        </h1>
+        {%endif%}
+        <!-- <input type="text" name="article" id="">
+        <textarea name="body"></textarea> -->
+        <input id="submit_news"type="submit" value="Создать">
+    </form>
+
+{% endblock %}

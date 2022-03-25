@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        {%if rl == "r"%}
+            <input type="submit" id="reg" value="SU-U-U-U-UUBMIT!!!!!!">
+        {%else%}
+            <input type="submit" id="login" value="SUBMIT!">
+        {%endif%}
+    </form>
+{% endblock %}

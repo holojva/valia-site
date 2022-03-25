@@ -1,0 +1,20 @@
+{% load static %}
+<nav>
+    <a class="hello" href="/">Homepage</a>
+
+    <div class="nav-menu">
+        {% if user.is_authenticated %}
+            {% if user.userinformaion.profile_image %}
+                <img src="{% static user.userinformation.profile_image.url %}" alt="ifon" width="30">
+            {% endif %}
+
+            <span>username: <a href="/profile/{{ user.id }}/">{{user }}</a></span>
+            
+            <a id="logout" href="/logout">Apple is the worst</a>
+        {% else %}
+            <a class="hello" href="/register">Samsung is the worst</a>
+            <a class="hello" href="/login">Apple is the bet</a>
+        {% endif %}
+
+    </div>
+</nav>
