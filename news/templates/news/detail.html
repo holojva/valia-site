@@ -23,7 +23,7 @@
     </form>
  {% if perms.user.is_staff %}
     <a href="/news/edit/{{ single_object.pk }}">Изменить</a>
-    <a href="/news/delete/{{ single_object.pk }}">Удалить</a>
+    <a href="/news/delete/{{ single_object.pk }}/">Удалить</a>
 
 {% endif %}
 <a href="/news/commentary/{{ single_object.pk }}/">Комментировать</a>
