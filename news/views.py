@@ -12,8 +12,7 @@ from news.models import News
 # Create your views here.
 def index(request, *args, **kwargs) :
     qs = News.objects.order_by("-id")
-    context = {"news_list": qs}
-    return render(request, "index.html", context)
+    return render(request, "index.html", {"news_list": qs})
 
 def detail_view(request, *args, **kwargs) :
     user = request.user
