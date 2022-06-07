@@ -44,7 +44,7 @@ class News(models.Model) :
         super(News, self).save(*args, **kwargs)
     def make_thumbnail(self):
         image = Image.open(self.image)
-        image.thumbnail((50, 50), Image.ANTIALIAS)
+        image.thumbnail((400, 400), Image.ANTIALIAS)
         print(self.image.name)
         thumb_name, thumb_extension = os.path.splitext(self.image.name)
         thumb_extension = thumb_extension.lower()

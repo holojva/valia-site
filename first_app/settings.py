@@ -25,7 +25,7 @@ SECRET_KEY = 'ds$qdbpik)(su0h#6@wlm%f6%8-b#w$n-co^(b4&d#9_umcrra'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["immense-tor-59465.herokuapp.com"]
+ALLOWED_HOSTS = ["immense-tor-59465.herokuapp.com", "127.0.0.1"]
 LOGIN_URL = "/login"
 LOGIN_REDIRECT_URL = "/"
 

@@ -11,7 +11,8 @@ from news.models import News
 
 # Create your views here.
 def index(request, *args, **kwargs) :
-    qs = News.objects.all()
+    qs = reversed(News.objects.all())
+    print(qs)
     context = {"news_list": qs}
     return render(request, "index.html", context)
 
@@ -89,7 +90,7 @@ def commentary_view(request, pk):
 
     return render(request, "news/commentary.html", {"single_object": obj, "form": form})
 @login_required
-@permission_required("user.is_staff")
+# @permission_required("user.is_staff")
 def commentary_edit_view(request, pk, pk2):
     try:
         obj = News.objects.get(id=pk)
@@ -98,11 +99,12 @@ def commentary_edit_view(request, pk, pk2):
         raise Http404
     if request.method == "POST" :
         form = CommentaryModelForm(request.POST, instance=comm)
-        if form.is_valid():
-            edited_obj = form.save(commit=False)
-            edited_obj.date = timezone.now()
-            edited_obj.save()
-            return redirect(f"/news/{pk}")
+        if request.user.is_staff or comm.user == request.user :
+            if form.is_valid():
+                edited_obj = form.save(commit=False)
+                edited_obj.date = timezone.now()
+                edited_obj.save()
+                return redirect(f"/news/{pk}")
     else:
         form = CommentaryModelForm(instance=comm)
     return render(request, "edit_commentary_form.html", {"single_object": obj, "form": form})

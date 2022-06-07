@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}
 
-My app
+Новости!
 {% endblock %}
 {% block content %}
 
@@ -15,6 +15,6 @@ My app
     <a href="news/{{ news.id }}">{{ news.article }}</a>
 </h1> 
 {% endfor %}
-<h1>CREATE NEWS!!!!!!!!!!!!!</h1>
-<a id="create_news" href="news/create">Create</a>
+<h1>Создать новость <h5>Вы можете создать новость только если вы Админ. Попросите по WhatsApp +8 (925) 792 97 18 сделать вас админом</h5></h1>
+<a id="create_news" href="news/create">Создать</a>
 {% endblock %}

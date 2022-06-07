@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-Edit - {{ single_object.article }}
+Исправить - {{ single_object.article }}
 {% endblock %}
 
 {% block content %}
-<h1><mark>Edit news</mark></h1>
-<h5>Author: {{ single_object.author }}</h5>
+<h1><mark>Исправить новость</mark></h1>
+<h5>Автор: {{ single_object.author }}</h5>
 <h1>{{ single_object.article }}</h1>
 
 {% include "news/detail_snippet.html" with single_object=single_object %}

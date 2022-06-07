@@ -1,6 +1,6 @@
 DEBUG = True
 
-ALLOWED_HOSTS = ['stark-savannah-09524.herokuapp.com']
+ALLOWED_HOSTS = ['https://enigmatic-shelf-68472.herokuapp.com/', "127.0.0.1"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -12,8 +12,8 @@ class ProfileModelForm(forms.ModelForm):
             "profile_image"
         ]
 class LoginForm(forms.Form) :
-    username = forms.CharField(label="Your name:")
-    password = forms.CharField(
+    username = forms.CharField(label="Имя пользователя:")
+    password = forms.CharField(label="Пароль:",
         widget=forms.PasswordInput(
             attrs={
                 "class": "form__password"
@@ -26,12 +26,12 @@ class LoginForm(forms.Form) :
         queryset = User.objects.filter(username__iexact=profile)
 
         if not queryset.exists():
-            raise forms.ValidationError("Wrong username or password")
+            raise forms.ValidationError("Неправильное имя пользователя или пароль")
         return profile
 class RegisterForm(forms.Form):
-    username = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    password = forms.CharField(
+    username = forms.CharField(required=True, label="Имя пользователя:" )
+    email = forms.EmailField(required=True, label="Почта:")
+    password = forms.CharField(label="Пароль:",
         widget=forms.PasswordInput(
             attrs={
                 "class": "form__password"
@@ -42,5 +42,5 @@ class RegisterForm(forms.Form):
         profile = self.cleaned_data.get("username")
         queryset = User.objects.filter(username__iexact=profile)
         if queryset.exists():
-            raise forms.ValidationError("Your name is stupid, choose another")
+            raise forms.ValidationError("Такое имя пользователя уже есть.")
         return profile

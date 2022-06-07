@@ -38,3 +38,5 @@ urlpatterns = [
     path("news/like/<int:pk>/", likes_view),
     path("profile/<int:pk>/", detail_user_view, name="profile")
 ]
+handler403 = "first_app.views.page_forbidden_view"
+handler404 = "first_app.views.page_not_found_view"

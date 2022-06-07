@@ -16,9 +16,9 @@
     <form action="/news/like/{{single_object.pk}}/" method="post">
         {% csrf_token %}
         {% if not liked %}
-            <input type="submit" value="LIKELIKELIKELIKE">
+            <input type="submit" value="Лайк!">
         {%else%}
-            <input type="submit" value="DISLIKEDISLIKEDISLIKE">
+            <input type="submit" value="Удалить лайк!">
         {%endif%}
     </form>
  {% if perms.user.is_staff %}
@@ -27,7 +27,7 @@
 
 {% endif %}
 <a href="/news/commentary/{{ single_object.pk }}/">Комментировать</a>
-<h5>Commentaries</h5>
+<h5>Комментарии</h5>
 
 {% for c in single_object.commentary.all %}
 <p>
