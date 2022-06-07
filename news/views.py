@@ -12,7 +12,6 @@ from news.models import News
 # Create your views here.
 def index(request, *args, **kwargs) :
     qs = reversed(News.objects.all())
-    print(qs)
     context = {"news_list": qs}
     return render(request, "index.html", context)
 
